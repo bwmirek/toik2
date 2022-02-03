@@ -1,26 +1,57 @@
 package pl.edu.pwsztar.toik2.catering.commerce;
 
 import lombok.*;
-import pl.edu.pwsztar.toik2.catering.delivery.City;
-import pl.edu.pwsztar.toik2.catering.delivery.CityResponse;
 
+/**
+ * Reprezentacja odpowiedzi serwera z zamówieniem
+ */
 @Builder
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 public class PurchaseResponse {
+    /**
+     * Cena tygodniowa
+     */
     private int weeklyPrice;
+    /**
+     * Nazwa diety
+     */
     private String diet;
 
+    /**
+     * Imię zamawiającego
+     */
     private String name;
+    /**
+     * Nazwisko zamawiającego
+     */
     private String surname;
+    /**
+     * Email zamawiającego
+     */
     private String email;
 
+    /**
+     * Miasto
+     */
     private String city;
+    /**
+     * Kod pocztowy
+     */
     private String zipCode;
+    /**
+     * adres dostawy
+     */
     private String addressLine;
 
+    /**
+     * Funkcja tworzące obiekt reprezentacji z obiektu encji
+     *
+     * @param purchase Encja zamówienia
+     * @return Reprezentacja odpowiedzi serwera z zamówieniem
+     */
     public static PurchaseResponse from(Purchase purchase) {
         return PurchaseResponse.builder()
                 .weeklyPrice(purchase.getDiet().getWeeklyPrice())

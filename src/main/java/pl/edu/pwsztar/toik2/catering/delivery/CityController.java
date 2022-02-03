@@ -7,11 +7,22 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * Kontroller obsługujący miasta
+ */
 @RestController
 @RequiredArgsConstructor
 public class CityController {
+    /**
+     * Repozytorium miast
+     */
     private final CityRepository cityRepository;
 
+    /**
+     * Endpoint zwracający listę miast
+     *
+     * @return Lista miast
+     */
     @RequestMapping("/cities")
     public List<CityResponse> getAllCities() {
         return cityRepository.findAll().stream().map(CityResponse::from).collect(Collectors.toList());

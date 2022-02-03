@@ -14,19 +14,42 @@ import pl.edu.pwsztar.toik2.catering.security.UserRepository;
 
 
 import java.nio.file.AccessDeniedException;
-import java.security.NoSuchAlgorithmException;
 import java.util.*;
 import java.util.stream.Collectors;
 
+/**
+ * Kontroler obsługujący zamówienia
+ */
 @RestController
 @RequiredArgsConstructor
 public class PurchaseController {
+    /**
+     * Repozytorium miast
+     */
     private final CityRepository cityRepository;
+    /**
+     * Repozytorium diet
+     */
     private final DietRepository dietRepository;
+    /**
+     * Repozytorium adresów dostawy
+     */
     private final DeliveryAddressRepository deliveryAddressRepository;
+    /**
+     * Repozytorium zakupów
+     */
     private final PurchaseRepository purchaseRepository;
+    /**
+     * Repozytorium użytkowników
+     */
     private final UserRepository userRepository;
 
+    /**
+     * Endpoint służący do składania zamówień
+     *
+     * @param purchaseBody obiekt zawierający informacje o zamówieniu
+     * @return ID nowozłożonego zamówienia
+     */
     @PostMapping("/purchase")
     public Map<String, Long> purchase(@RequestBody PurchaseBody purchaseBody) {
         Diet diet = dietRepository.findById(purchaseBody.getDietId()).orElseThrow();
@@ -57,6 +80,13 @@ public class PurchaseController {
         return result;
     }
 
+    /**
+     * Zabezpieczona lista zamówień
+     *
+     * @param userBody Dane wymagane do autentykacji
+     * @return Lista złożonych zamówień
+     * @throws AccessDeniedException Odmowa dostępu do danych
+     */
     @RequestMapping("/purchases")
     public List<PurchaseResponse> listAll(@RequestBody UserBody userBody) throws AccessDeniedException {
         User user = userRepository.findOneByUsername(userBody.getUsername());
