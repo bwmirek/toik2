@@ -10,7 +10,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class Toik2BackendApplication {
 
     /**
-     * funkcja startowa aplikacji
+     * Funkcja startowa aplikacji
      *
      * @param args Argumenty startowe
      */

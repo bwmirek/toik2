@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"pl.edu.pwsztar.toik2.catering"},{"l":"pl.edu.pwsztar.toik2.catering.commerce"},{"l":"pl.edu.pwsztar.toik2.catering.delivery"},{"l":"pl.edu.pwsztar.toik2.catering.restaurant"},{"l":"pl.edu.pwsztar.toik2.catering.security"}];updateSearchResults();
