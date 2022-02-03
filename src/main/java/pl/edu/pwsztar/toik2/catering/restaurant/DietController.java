@@ -1,6 +1,7 @@
 package pl.edu.pwsztar.toik2.catering.restaurant;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import pl.edu.pwsztar.toik2.catering.delivery.CityRepository;
@@ -25,6 +26,7 @@ public class DietController {
      *
      * @return Lista diet
      */
+    @CrossOrigin(origins = "*")
     @RequestMapping("/diets")
     public List<DietResponse> getAllDiets() {
         return dietRepository.findAll().stream().map(DietResponse::from).collect(Collectors.toList());

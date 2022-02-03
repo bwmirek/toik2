@@ -50,6 +50,7 @@ public class PurchaseController {
      * @param purchaseBody obiekt zawierający informacje o zamówieniu
      * @return ID nowozłożonego zamówienia
      */
+    @CrossOrigin(origins = "*")
     @PostMapping("/purchase")
     public Map<String, Long> purchase(@RequestBody PurchaseBody purchaseBody) {
         Diet diet = dietRepository.findById(purchaseBody.getDietId()).orElseThrow();
@@ -87,6 +88,7 @@ public class PurchaseController {
      * @return Lista złożonych zamówień
      * @throws AccessDeniedException Odmowa dostępu do danych
      */
+    @CrossOrigin(origins = "*")
     @RequestMapping("/purchases")
     public List<PurchaseResponse> listAll(@RequestBody UserBody userBody) throws AccessDeniedException {
         User user = userRepository.findOneByUsername(userBody.getUsername());

@@ -1,6 +1,7 @@
 package pl.edu.pwsztar.toik2.catering.delivery;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -23,6 +24,7 @@ public class CityController {
      *
      * @return Lista miast
      */
+    @CrossOrigin(origins = "*")
     @RequestMapping("/cities")
     public List<CityResponse> getAllCities() {
         return cityRepository.findAll().stream().map(CityResponse::from).collect(Collectors.toList());
