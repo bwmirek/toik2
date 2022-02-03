@@ -20,18 +20,4 @@ public class PurchaseBody {
     private Long cityId;
     private String zipCode;
     private String addressLine;
-
-    @Override
-    public String toString() {
-        return "PurchaseBody{" +
-                "dietId=" + dietId +
-                ", weeks=" + weeks +
-                ", name='" + name + '\'' +
-                ", surname='" + surname + '\'' +
-                ", email='" + email + '\'' +
-                ", cityId=" + cityId +
-                ", zipCode='" + zipCode + '\'' +
-                ", addressLine='" + addressLine + '\'' +
-                '}';
-    }
 }
